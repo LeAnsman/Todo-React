@@ -8,6 +8,7 @@ module.exports = {
         wiggle: "wiggle 2s ease-in-out infinite",
         comeIn: "comeIn 1s",
         comeInReverse: "comeInReverse 1s",
+        appear: "appear 0.2s",
       },
       keyframes: {
         fadeIn: {
@@ -24,8 +25,8 @@ module.exports = {
           },
         },
         wiggle: {
-          "0%, 100%": { transform: "rotate(-2deg)" },
-          "50%": { transform: "rotate(2deg)" },
+          "0%, 100%": { transform: "rotate(-1.5deg)" },
+          "50%": { transform: "rotate(1.5deg)" },
         },
         comeIn: {
           "0%": {
@@ -47,6 +48,16 @@ module.exports = {
           "100%": {
             opacity: "1",
             transform: "translateX(0)",
+          },
+        },
+        appear: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
           },
         },
       },

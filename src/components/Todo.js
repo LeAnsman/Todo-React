@@ -39,7 +39,6 @@ const Todo = ({
   const editHandler = () => {
     setToggleEditPopup(true);
     setEditTextTodo(text);
-    console.log(todo.id);
     setEditTodoId(todo.id);
   };
 
@@ -96,9 +95,9 @@ const Todo = ({
       <style>{`
         .complete {
           color: grey;
-          //   text-decoration: line-through;
           transition: color 0.8s;
           position: relative;
+          width: fit-content;
         }
         .complete::after {
             content: "";
@@ -108,7 +107,7 @@ const Todo = ({
             position: absolute;
             top: 40%;
             right: 0;
-            animation: fadeIn 0.3s; 
+            animation: comeInReverse 1s; 
         }
       `}</style>
     </div>

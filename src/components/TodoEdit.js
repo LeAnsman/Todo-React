@@ -31,23 +31,30 @@ const TodoEdit = ({
   };
   return toggleEditPopup ? (
     <div className="POPUP fixed top-0 left-0 w-full h-screen bg-gray-400 bg-opacity-20 flex justify-center items-center">
-      <div className="POPUP_INNER relative p-8 w-full max-w-2xl bg-purple-200 shadow-sm">
-        {/* <button
-          className="CLOSE_BTN absolute top-4 right-4 border-red-500 border-2 p-2"
-          onClick={() => setToggleEditPopup(false)}
-        >
-          x
-        </button> */}
+      <div className="POPUP_INNER relative p-8 w-[90%] max-w-2xl bg-purple-200 shadow-lg flex flex-col rounded-lg animate-appear">
         <input
           type="text"
-          className="TODO_INPUT p-3 rounded-lg mb-8 ml-8 border-4 outline-purple-600 shadow-lg"
+          className="TODO_INPUT p-3 rounded-lg mb-8 h-fit outline-purple-600 shadow-lg"
           placeholder="Type a new todo"
           // Everytime the input change -> inputTextHandler run
           onChange={inputTextEditHandler}
           // to put the inputText value as a value
           defaultValue={editTextTodo}
         />
-        <button onClick={editTextHandler}>Confirm Changes</button>
+        <div className="POPUP_BTN flex justify-between">
+          <button
+            className="CONFIRM_BTN bg-transparent hover:bg-purple-600 text-indigo-900 font-semibold hover:text-white py-2 px-4 border border-purple-600 hover:border-transparent rounded-lg"
+            onClick={editTextHandler}
+          >
+            Confirm Changes
+          </button>
+          <button
+            className="CLOSE_BTN bg-transparent hover:bg-red-800 text-rose-600 font-semibold hover:text-white py-2 px-4 border border-rose-600 hover:border-transparent rounded-lg"
+            onClick={() => setToggleEditPopup(false)}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   ) : (

@@ -4,6 +4,10 @@ import React from "react";
 
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+  const activeStyle = {
+    color: "rgb(129 140 248)",
+  };
+
   return (
     <div className="NAV flex items-center justify-between border-b border-gray-400 px-10 pt-5 pb-2 bg-purple-100">
       <a href="/" className="animate-wiggle">
@@ -22,7 +26,7 @@ const Nav = () => {
             <span className="block h-1 w-8 animate-pulse bg-violet-900"></span>
           </div>
 
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+          <div className={isNavOpen ? "showMenuNav " : "hideMenuNav"}>
             {/* toggle class based on isNavOpen state */}
             <div
               className="absolute top-0 right-0 px-9 py-8 cursor-pointer"
@@ -42,41 +46,59 @@ const Nav = () => {
               </svg>
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-              <NavLink to="/">
-                <li className="text-xl border-b border-gray-400 my-8 uppercase text-indigo-900">
+              <li className="text-xl my-8 uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all">
+                <NavLink
+                  to="/"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
                   Home
-                </li>
-              </NavLink>
-              <NavLink to="/todo">
-                <li className="text-xl border-b border-gray-400 my-8 uppercase text-indigo-900">
+                </NavLink>
+              </li>
+              <li className="text-xl my-8 uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all">
+                <NavLink
+                  to="/todo"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
                   Todo's
-                </li>
-              </NavLink>
-              <NavLink to="/calendar">
-                <li className="text-xl border-b border-gray-400 my-8 uppercase text-indigo-900">
+                </NavLink>
+              </li>
+              <li className="text-xl my-8 uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all">
+                <NavLink
+                  to="/calendar"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
                   Calendar
-                </li>
-              </NavLink>
+                </NavLink>
+              </li>
             </ul>
           </div>
         </section>
 
         <ul className="DESKTOP-MENU hidden space-x-16 md:flex">
-          <NavLink to="/">
-            <li className="text-xl uppercase text-indigo-900 hover:text-indigo-700 relative after:absolute after:content-[''] after:w-full after:h-0.5 after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-5 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+          <li className="text-xl uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5 after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-5 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+            <NavLink
+              to="/"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
               Home
-            </li>
-          </NavLink>
-          <NavLink to="/todo">
-            <li className="text-xl uppercase text-indigo-900 hover:text-indigo-700 relative after:absolute after:content-[''] after:w-full after:h-0.5 after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-5 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+            </NavLink>
+          </li>
+          <li className="text-xl uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5 after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-5 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+            <NavLink
+              to="/todo"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
               Todo's
-            </li>
-          </NavLink>
-          <NavLink to="/calendar">
-            <li className="text-xl uppercase text-indigo-900 hover:text-indigo-700 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+            </NavLink>
+          </li>
+          <li className="text-xl uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+            <NavLink
+              to="/calendar"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
               Calendar
-            </li>
-          </NavLink>
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <style>{`
@@ -84,7 +106,6 @@ const Nav = () => {
           display: none;
         }
         .showMenuNav {
-
           display: block;
           background-color: rgb(250 245 255);
           position: absolute;
