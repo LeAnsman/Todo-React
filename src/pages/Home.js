@@ -28,6 +28,7 @@ const Home = () => {
       </h2>
       <ul className="list-disc px-10 py-3 space-y-10 ml-5 text-xl">
         <li>Display calendar</li>
+        <li>When Todo is checked, go to the bottom of the list</li>
         <li>Re order the Todos</li>
         <li>Switch between dark and light mode</li>
       </ul>

@@ -8,7 +8,6 @@ const TodoRandom = ({ todos }) => {
 
   useEffect(() => {
     setFilteredTodosRandom(todos.filter((todo) => todo.complete === false));
-    console.log(filteredTodosRandom);
     //eslint-disable-next-line
   }, [todos]);
 
