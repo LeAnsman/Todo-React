@@ -14,8 +14,9 @@ const Todo = ({
   setEditTodoId,
 }) => {
   const deleteHandler = () => {
-    // filter the todos array and filter out the element the gets clicked on
+    localStorage.removeItem("todos");
     setTodos(todos.filter((item) => item.id !== todo.id));
+    // filter the todos array and filter out the element the gets clicked on
   };
 
   const completeHandler = () => {
@@ -53,7 +54,7 @@ const Todo = ({
         >
           {text}
         </p>
-        <div className="MODIFY_CONTAINER space-x-10 flex justify-end mt-4 md:justify-center md:ml-10 md:mt-0 animate-comeIn">
+        <div className="MODIFY_CONTAINER space-x-10 flex justify-end mt-4 md:justify-center md:items-center md:ml-10 md:mt-0 animate-comeIn">
           <input
             onClick={completeHandler}
             type="checkbox"
@@ -94,7 +95,7 @@ const Todo = ({
       />
       <style>{`
         .complete {
-          color: grey;
+          color: #b3b3b3;
           transition: color 0.8s;
           position: relative;
           width: fit-content;
@@ -103,7 +104,7 @@ const Todo = ({
             content: "";
             width: 100%;
             height: 2px;
-            background-color: gray;
+            background-color: #b3b3b3;
             position: absolute;
             top: 40%;
             right: 0;

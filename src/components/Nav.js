@@ -5,16 +5,18 @@ import React from "react";
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const activeStyle = {
+    animation: "wiggle 1.2s ease-in-out infinit",
     color: "rgb(129 140 248)",
   };
 
   return (
     <div className="NAV flex items-center justify-between border-b border-gray-400 px-10 pt-5 pb-2 bg-purple-100">
-      <a href="/" className="animate-wiggle">
+      <div className="animate-wiggle">
         <h3 className="py-3 text-4xl  text-indigo-900 font-mono font-bold tracking-widest ;">
           ToDay
         </h3>
-      </a>
+      </div>
+
       <nav>
         <section className="MOBILE-MENU flex md:hidden">
           <div
@@ -91,7 +93,7 @@ const Nav = () => {
               Todo's
             </NavLink>
           </li>
-          <li className="text-xl uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
+          <li className=" text-xl uppercase text-indigo-900 hover:text-indigo-400 relative after:absolute after:content-[''] after:w-full after:h-0.5  after:bg-purple-400 after:bottom-0 after:left-0 after:translate-y-8 after:opacity-0 after:invisible hover:after:visible hover:after:translate-y-0 hover:after:opacity-100  after:transition-all ">
             <NavLink
               to="/calendar"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -119,6 +121,8 @@ const Nav = () => {
           justify-content: space-between;
           align-items: center;
           padding-top: 80px;
+          animation : comeInTop 0.4s ;
+          overflow-x : hidden;
         }
       `}</style>
     </div>

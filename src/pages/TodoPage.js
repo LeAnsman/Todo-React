@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 // import TodoEdit from "../components/TodoEdit";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
+import TodoRandom from "../components/TodoRandom";
 import TodoTitle from "../components/TodoTitle";
 
 const TodoPage = () => {
@@ -24,6 +25,7 @@ const TodoPage = () => {
   useEffect(() => {
     filterHandler();
     saveLocalTodos();
+
     // get rid of the error
     // eslint-disable-next-line
   }, [todos, selects]);
@@ -43,15 +45,6 @@ const TodoPage = () => {
     }
   };
 
-  //save to local
-  const saveLocalTodos = () => {
-    // needed to add a condition because not saving on reload
-    if (todos.length > 0) {
-      // pushing everything in the key "todos"
-      localStorage.setItem("todos", JSON.stringify(todos));
-    }
-  };
-
   const getLocalTodos = () => {
     // if there is no todo, create a empty array in local storage
     if (localStorage.getItem("todos") === null) {
@@ -63,12 +56,23 @@ const TodoPage = () => {
     }
   };
 
+  //save to local
+  const saveLocalTodos = () => {
+    if (todos.length > 0) {
+      // needed to add a condition because not saving on reload
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  };
+
   return (
     <div className="TODO_APP">
+      <TodoRandom todos={todos} />
+
       {/* Taking setInputText and passing it to the form with a props*/}
       {/* We can get access to it in the Todoform */}
       <Nav />
       <TodoTitle />
+
       <TodoForm
         todos={todos}
         setTodos={setTodos}
@@ -88,9 +92,6 @@ const TodoPage = () => {
         editTodoId={editTodoId}
         setEditTodoId={setEditTodoId}
       />
-
-      {/* inputText update himself with the e.target.value that we took in the TodoForm */}
-      {/* <p>{inputText}</p> */}
     </div>
   );
 };

@@ -9,7 +9,6 @@ const TodoTitle = () => {
   };
 
   const listTitleHandler = (e) => {
-    e.preventDefault();
     setListTitle(e.target.value);
   };
 
@@ -24,7 +23,10 @@ const TodoTitle = () => {
   const getLocalListTitle = () => {
     // if there is no todo, create a empty array in local storage
     if (localStorage.getItem("listTitle") === null) {
-      localStorage.setItem("listTitle", JSON.stringify([]));
+      localStorage.setItem(
+        "listTitle",
+        JSON.stringify("Click here to enter the title")
+      );
     } else {
       // if there is listTitle, parse them en set them as listTitle
       const titleLocal = JSON.parse(localStorage.getItem("listTitle"));

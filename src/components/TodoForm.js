@@ -21,15 +21,16 @@ const TodoForm = ({ inputText, setInputText, todos, setTodos, setSelects }) => {
     if (!inputText.trim()) {
       alert("Please enter a new Todo");
       return;
+    } else {
+      setTodos([
+        // if there is already some todos, add it to the array
+        ...todos,
+        // so todos is gonna be [{complete:,id:,text:e.target.value}, {same}]
+        { text: inputText, complete: false, id: Math.random() * 1000 },
+      ]);
+      // delete the content of the inputText (the value of the input)
+      setInputText("");
     }
-    setTodos([
-      // if there is already some todos, add it to the array
-      ...todos,
-      // so todos is gonna be [{complete:,id:,text:e.target.value}, {same}]
-      { text: inputText, complete: false, id: Math.random() * 1000 },
-    ]);
-    // delete the content of the inputText (the value of the input)
-    setInputText("");
   };
   return (
     <form className="TODO_FORM mt-1 flex flex-wrap justify-center items-center mb-12 mx-auto md:flex-nowrap md:w-[90%] md:space-x-8">
