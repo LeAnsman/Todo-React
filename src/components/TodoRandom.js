@@ -23,7 +23,7 @@ const TodoRandom = ({ todos }) => {
     }
   };
   return toggleRandomTodo ? (
-    <div className="POPUP fixed top-0 left-0 w-full h-screen bg-gray-400 bg-opacity-20 flex justify-center items-center">
+    <div className="POPUP fixed top-0 left-0 w-full h-screen bg-gray-400 bg-opacity-40 flex justify-center items-center z-10">
       <div className="POPUP_INNER relative p-8 w-[90%] max-w-2xl bg-purple-200 shadow-lg flex flex-col rounded-lg animate-appear">
         <p className="text-center font-xl text-lg underline-offset-8 underline">
           Your ToDay is :

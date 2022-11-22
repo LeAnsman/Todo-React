@@ -36,7 +36,7 @@ const TodoForm = ({ inputText, setInputText, todos, setTodos, setSelects }) => {
     <form className="TODO_FORM mt-1 flex flex-wrap justify-center items-center mb-12 mx-auto md:flex-nowrap md:w-[90%] md:space-x-8">
       <input
         type="text"
-        className="TODO_INPUT p-3 rounded-lg border-4 outline-purple-600 shadow-lg w-[60%]"
+        className="TODO_INPUT p-3 rounded-l-lg border-r-1 border-4 outline-purple-600 md:shadow-lg w-[60%] md:rounded-lg"
         placeholder="Type a new todo"
         // Everytime the input change -> inputTextHandler run
         onChange={inputTextHandler}
@@ -45,7 +45,7 @@ const TodoForm = ({ inputText, setInputText, todos, setTodos, setSelects }) => {
       />
       <button
         onClick={submitTodoHandler}
-        className="TODO_BTN rounded-lg border-2 px-2 py-3 bg-purple-100 text-indigo-900 text-lg hover:animate-pulse shadow-lg w-[30%] md:w-[20%]"
+        className="TODO_BTN rounded-r-lg border-2 border-l-0 px-2 py-3 bg-purple-100 text-indigo-900 text-lg hover:animate-pulse md:shadow-lg w-[30%] md:w-[20%] md:rounded-lg md:border-l-2"
         type="submit"
       >
         Add Todo
