@@ -50,7 +50,7 @@ const Todo = ({
         <p
           className={`TODO_ITEM_TXT ${
             todo.complete ? "complete" : ""
-          } font-mono animate-comeInReverse relative`}
+          } font-mono animate-comeInReverse relative transition-colors`}
         >
           {text}
         </p>
@@ -93,24 +93,26 @@ const Todo = ({
         setEditTextTodo={setEditTextTodo}
         editTodoId={editTodoId}
       />
-      <style>{`
+      <style>
+        {`
         .complete {
           color: #b3b3b3;
-          transition: color 0.8s;
+          transition: color 150ms;
           position: relative;
           width: fit-content;
+          text-decoration: line-through;
         }
-        .complete::after {
-            content: "";
-            width: 100%;
-            height: 2px;
-            background-color: #b3b3b3;
-            position: absolute;
-            top: 40%;
-            right: 0;
-            animation: comeInReverse 1s; 
-        }
-      `}</style>
+      `}
+        {/*.complete::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: #b3b3b3;
+          position: absolute;
+          top: 40%;
+          right: 0;
+          animation: comeInReverse 1s;*/}
+      </style>
     </div>
   );
 };

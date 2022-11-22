@@ -4,7 +4,6 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        fadeIn: "fadeIn 0.3s",
         wiggle: "wiggle 1.2s ease-in-out infinite",
         comeIn: "comeIn 1s",
         comeInReverse: "comeInReverse 1s",
@@ -12,19 +11,6 @@ module.exports = {
         comeInTop: "comeInTop 0s",
       },
       keyframes: {
-        fadeIn: {
-          "0%": {
-            opacity: "0",
-            right: "300%",
-          },
-          "60%": {
-            opacity: "0.5",
-          },
-          "100%": {
-            opacity: "1",
-            right: "0",
-          },
-        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-0.8deg)" },
           "50%": { transform: "rotate(0.8deg)" },
